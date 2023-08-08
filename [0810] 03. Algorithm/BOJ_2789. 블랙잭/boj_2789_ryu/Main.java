@@ -1,3 +1,5 @@
+package boj_2789_ryu;
+
 import java.util.Scanner;
 
 public class Main {

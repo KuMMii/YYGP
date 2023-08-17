@@ -1,9 +1,6 @@
-package YYP.PG_134240;
+package pg_134240_푸드파이트대회.J;
 
-public class PG_134240 {
-
-}
-class Solution {
+class PG_134240_J {
     public String solution(int[] food) {
         String answer = "";
         

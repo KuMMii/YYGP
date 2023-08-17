@@ -1,4 +1,4 @@
-package YYP.bj_17413;
+package boj_17413_단어뒤집기2.J;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BJ_17413 {
+public class BJ_17413_J {
 	
 	
 	public static void main(String[] args) throws IOException {

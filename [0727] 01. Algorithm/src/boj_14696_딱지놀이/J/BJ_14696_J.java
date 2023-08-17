@@ -1,10 +1,10 @@
-package YYP.bj_14696;
+package boj_14696_딱지놀이.J;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class BJ_14696 {
+public class BJ_14696_J {
 	
 	public static void main(String[] args) throws IOException{
 		

@@ -1,6 +1,6 @@
-package YYP.PG_134240;
+package pg_134240_푸드파이트대회.J;
 
-public class answer1 {
+public class answer1_J {
 
 }
 class Solution {

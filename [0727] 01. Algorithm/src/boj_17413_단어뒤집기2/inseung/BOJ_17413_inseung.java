@@ -1,4 +1,4 @@
-package 백준;
+package boj_17413_단어뒤집기2.inseung;
 
 import java.util.Arrays;
 import java.util.Scanner;

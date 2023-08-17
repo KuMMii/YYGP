@@ -1,9 +1,9 @@
-package 백준;
+package pg_12906_같은숫자는싫어.inseung;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class PG_12906 {
+public class PG_12906_inseung {
 	    public int[] solution(int[] arr) {
 	        
 	        Queue<Integer> q = new LinkedList<>();

@@ -1,8 +1,8 @@
-package 백준;
+package boj_14696_딱지놀이.inseung;
 
 import java.util.Scanner;
 
-public class BOJ_14696 {
+public class BOJ_14696_inseung {
 	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();

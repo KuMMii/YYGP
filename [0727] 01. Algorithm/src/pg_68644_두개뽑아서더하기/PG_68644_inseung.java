@@ -1,8 +1,9 @@
+package pg_68644_두개뽑아서더하기;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Arrays;
 
-public class PG_68644 {}
+public class PG_68644_inseung {}
 
 class Solution {
     public int[] solution(int[] numbers) {

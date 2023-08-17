@@ -1,9 +1,8 @@
-package 딱지놀이;
+package boj_14696_딱지놀이.sy;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class BOJ_14696 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();

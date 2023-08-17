@@ -1,8 +1,8 @@
-package YYP.PG_42748;
+package pg_42748_K번째수.J;
 
 import java.util.Arrays;
 
-public class PG_42748 {
+public class PG_42748_J {
 
 }
 

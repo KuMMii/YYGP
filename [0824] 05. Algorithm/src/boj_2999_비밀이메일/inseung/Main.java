@@ -1,4 +1,4 @@
-package boj_2999_비밀이메일_inseung;
+package boj_2999_비밀이메일.inseung;
 
 import java.util.Scanner;
 
@@ -39,3 +39,4 @@ public class Main {
 		}
 	}
 }
+

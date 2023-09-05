@@ -41,7 +41,8 @@ public class Solution {
 					if(arr[r][c] == p) {
 						rP = r;
 						cP = c;
-					}else if(arr[r][c] == q) {
+					}
+					if(arr[r][c] == q) {
 						rQ = r;
 						cQ = c;
 					}

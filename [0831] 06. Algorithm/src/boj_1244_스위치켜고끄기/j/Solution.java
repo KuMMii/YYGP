@@ -1,4 +1,4 @@
-package SWEA_18630_스켜끄;
+package boj_1244_스위치켜고끄기.j;
 
 import java.util.Scanner;
 

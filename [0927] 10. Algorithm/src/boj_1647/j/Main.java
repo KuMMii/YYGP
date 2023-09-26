@@ -7,6 +7,7 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class Main {
+	//for Edge Array
 	static class Edge implements Comparable<Edge>{
 		int st;
 		int ed;
@@ -29,23 +30,21 @@ public class Main {
 	
 	
 	static int N,M,min,sum; 
-	static int[] arr; //인덱스 담는 배열
-	static List<Edge>[] adjArr;
-	static boolean[] visited;
-	//선택한 거 넣는 큐, 남은 도시 넣는 큐
-	static PriorityQueue<Edge> pq1;
-	static PriorityQueue<Edge> pq2;
+	static List<Edge>[] adjArr; //Edge Array
+	static boolean[] visited; 
+	//선택한 거 넣는 큐, 남은 도시 넣는 큐(Prim방식 사용)
+	static PriorityQueue<Edge> pq;
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		
 		N=sc.nextInt();
 		M=sc.nextInt();
-		visited=new boolean[N+1];
+		visited=new boolean[N+1]; //도시번호가 1부터 시작
 		
 		
 		//index=집 번호
-		adjArr=new ArrayList[N+1];
+		adjArr=new ArrayList[N+1]; //도시번호가 1부터 시작해서
 		
 		//리스트 초기화
 		for(int i=1; i<=N; i++) {
@@ -63,83 +62,47 @@ public class Main {
 			adjArr[b].add(new Edge(b,a,c));
 		}
 		
-		//집합으로 하기
-//		for(int i=2; i<=N/2; i++) {
-//			arr=new int[i];
-//			powerSet(1,0,i);
-//			
-//		}
-			arr=new int[2];
-			powerSet(1,0,2);
 			
-		
+		Prim(1);//도시는 1부터 있으니까
 		
 		
 	}//main
 
-	
-	public static void powerSet(int at, int idx, int size) {
-		//여기서는 조합만 하는곳!
-		
-		
-		
-		//크기만큼 같아지면 min이랑 비교하기 return;
-		if(idx==size) {
-			sum=0;
-			min=Math.min(Prim(arr[0]),min);
-//			System.out.println(Arrays.toString(arr));
-			return;
-		}
-		
-		
-		for(int i=at; i<=N; i++) {
-			if(!visited[i]) {
-				arr[idx]=i;
-				visited[i]=true;
-				powerSet(i+1,idx+1,size);
-				visited[i]=false;
-				
-			}
-		}
-		
-		
-	}//powerSet
 
 
-	public static int Prim(int idx) {
-		int pick=0;
-//		System.out.println(Arrays.toString(arr));
+	public static void Prim(int idx) {
+		int pick=0; //뽑은 개수
+		int max=Integer.MIN_VALUE;//가장 큰 값을 따로 저장해서 마지막 합에서 뺄 예정
+		int sum=0; //MST 전체 합
+		pq=new PriorityQueue<>(); //간선들을 담고 가장 작은값을 빼는 pq
 		
-		pq1=new PriorityQueue<>();
-		pq2=new PriorityQueue<>();
-		
-		//먼저 선택한 그룹부터 구해보자
-		pq1.addAll(adjArr[idx]);
+		//첫번째 인덱스는 그냥 넣기
+		pq.addAll(adjArr[idx]);
 		visited[idx]=true;
 		
 		
-		while(!pq1.isEmpty()) {
-			Edge e=pq1.poll();
-			for(int i=; i<arr.length; i++) {
-				if(e.ed==arr[i] && !visited[e.ed]) {
-					System.out.println(e.ed);
-					pq1.addAll(adjArr[e.ed]);
-					visited[e.ed]=true;
-					pick++;
-				}
+		//프림으로 전체 루트 보기
+		while(pick!=adjArr.length-2) {
+			//하나 빼기
+			Edge e=pq.poll();
+			
+			if(!visited[e.ed]) {
+				//새로 가는 곳이면 합에 가중치 더해주기
+				sum+=e.w;
+				//최대값을 찾기 위해 하는 것(크루스칼로 할때 마지막꺼를 안더하면 이과정이 없어도 됨)
+				max=Math.max(max, e.w);
+				//또 도착정점이 시작점인 간선 전부 추가
+				pq.addAll(adjArr[e.ed]);
+				visited[e.ed]=true;
+				pick++;
 				
 			}
-			
-			if(pick==arr.length-1) {
-				break;
-			}
-			
+				
 		}//while
+			//전체 합에서 가장 큰 간선빼기	
+			System.out.println(sum-max);
 		
 		
-		
-		
-		return 0;
-	}
+	}//prim
 
 }//class

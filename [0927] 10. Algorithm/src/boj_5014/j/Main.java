@@ -1,4 +1,4 @@
-package boj_5014.j;
+package boj_5014;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,43 +1,42 @@
 package boj_9663;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
 	static int N,cnt;
-	//오아, 왼아
-	static int[] dr= {1,1};
-	static int[] dc= {1,-1};
+	static int[] arr;
 	
-	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		
-			N=sc.nextInt();
-			boolean[][] visited=new boolean[N][N];
-			cnt=0;
+	public static void main(String[] args) throws IOException {
+			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			StringTokenizer st=new StringTokenizer(br.readLine());
 			
-			perm(0, visited);
+			N=Integer.parseInt(st.nextToken());
+			
+			arr=new int [N];
+			cnt=0;
+			perm(0);
 			
 			System.out.println(cnt);
+			
+			
 	}//main
 
-	public static void perm(int idx, boolean[][] visited) {
+	public static void perm(int depth) {
 		
-		if(idx==N) {
+		if(depth==N) {
 			cnt++;
 			return;
 		}
 		
+		//select row
 		for(int i=0; i<N; i++) {
-			//false 일 경우
-			if(!visited[idx][i]) {
-				boolean[][] tmpArr=new boolean[N][N];
-				for(int r=0; r<N; r++) {
-					for(int j=0; j<N; j++) {
-						tmpArr[r][j]=visited[r][j];
-					}
-					
-				}
-				perm(idx+1, visitedCHK(tmpArr,idx,i));
+			arr[depth]=i;
+			
+			if(check(depth)) {
+				perm(depth+1);
 			}
 		}
 		
@@ -45,25 +44,19 @@ public class Main {
 		
 	}//perm
 
-	//visited 해주는 메서드
-	public static boolean[][] visitedCHK(boolean[][] tmpArr, int r, int c) {
+	//check if the column is placed on the same row or diagonal position
+	private static boolean check(int col) {
 		
-		//위 아래 양 전부 true로 바꿔주기
-		for(int i=0; i<N; i++) {
-			tmpArr[i][c]=true;
-			tmpArr[r][i]=true;
-		}
-		
-		//대각선 전부 true로 바꿔주기
-		for(int i=0; i<2; i++) {
-			int tmp=1;
-			while(0<=r+tmp*dr[i]&&r+tmp*dr[i]<N && 0<=c+tmp*dc[i]&&c+tmp*dc[i]<N) {
-				tmpArr[r+tmp*dr[i]][c+tmp*dc[i]]=true;
-				tmp++;
-			}
+		for(int i=0; i<col; i++) {
+			//same row
+			if(arr[col]==arr[i]) return false;
+			//diagonal position
+			if(Math.abs(col-i)==Math.abs(arr[col]-arr[i])) return false;
 		}
 		
 		
-		return tmpArr;
+		return true;
 	}
+
+	
 }//class

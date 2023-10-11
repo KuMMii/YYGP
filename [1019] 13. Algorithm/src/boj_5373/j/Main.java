@@ -1,4 +1,4 @@
-package boj_17779.inseung;
+package boj_5373.j;
 
 public class Main {
 

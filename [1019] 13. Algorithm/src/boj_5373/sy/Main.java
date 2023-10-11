@@ -1,4 +1,4 @@
-package boj_17779.j;
+package boj_5373.sy;
 
 public class Main {
 

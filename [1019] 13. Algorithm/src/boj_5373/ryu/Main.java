@@ -1,4 +1,4 @@
-package boj_17779.ryu;
+package boj_5373.ryu;
 
 public class Main {
 

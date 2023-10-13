@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Debug {
 	static final char w= 119;
 	static final char y= 121;
 	static final char r= 114;
@@ -69,6 +69,12 @@ public class Main {
 					}
 				}
 			}
+//			for (int i=0; i<3; i++) {
+//				for (int j=0; j<3; j++) {
+//					System.out.print(up[i][j]);
+//				}
+//				System.out.println();
+//			}
 			break;
 			
 		// d1 done
@@ -109,6 +115,12 @@ public class Main {
 					down[i][2] = temp[i];
 				}
 			}
+//			for (int i=0; i<3; i++) {
+//				for (int j=0; j<3; j++) {
+//					System.out.print(down[i][j]);
+//				}
+//				System.out.println();
+//			}
 			break;
 		// f1 done
 		case F:
@@ -148,6 +160,12 @@ public class Main {
 					}
 				}
 			}
+//			for (int i=0; i<3; i++) {
+//				for (int j=0; j<3; j++) {
+//					System.out.print(front[i][j]);
+//				}
+//				System.out.println();
+//			}
 			break;
 		// b1 done
 		case B:
@@ -186,6 +204,12 @@ public class Main {
 					back[i][2] = temp[i];
 				}
 			}
+//			for (int i=0; i<3; i++) {
+//				for (int j=0; j<3; j++) {
+//					System.out.print(back[i][j]);
+//				}
+//				System.out.println();
+//			}
 			break;
 		// l1 done
 		case L:
@@ -224,6 +248,12 @@ public class Main {
 					left[i][2] = temp[i];
 				}
 			}
+//			for (int i=0; i<3; i++) {
+//				for (int j=0; j<3; j++) {
+//					System.out.print(left[i][j]);
+//				}
+//				System.out.println();
+//			}
 			break;
 		// r1 done
 		case R:
@@ -262,6 +292,12 @@ public class Main {
 					}
 				}
 			}
+//			for (int i=0; i<3; i++) {
+//				for (int j=0; j<3; j++) {
+//					System.out.print(right[i][j]);
+//				}
+//				System.out.println();
+//			}
 			break;
 		}
 	}
@@ -274,6 +310,12 @@ public class Main {
 		for (int tc=0; tc<T; tc++) {
 			for (int i=0; i<3; i++) {
 				for (int j=0; j<3; j++) {
+//					up[i][j] = w;
+//					down[i][j] = 'y';
+//					front[i][j] = 'g';
+//					back[i][j] = 'b';
+//					left[i][j] = 'o';
+//					right[i][j] = 'r';
 					up[i][j] = w;
 					down[i][j] = y;
 					front[i][j] = r;
@@ -287,7 +329,22 @@ public class Main {
 			StringTokenizer st = new StringTokenizer(bf.readLine());
 			for (int n=0; n<N; n++) {
 				String command = st.nextToken();
+//				System.out.println(command);
 				turn(command.charAt(0), command.charAt(1));
+//				System.out.println("up");
+//				for (int i=0; i<3; i++) {
+//					for (int j=0; j<3; j++) {
+//						System.out.print(up[i][j]);
+//					}
+//					System.out.println();
+//				}
+//				System.out.println("front");
+//				for (int i=0; i<3; i++) {
+//					for (int j=0; j<3; j++) {
+//						System.out.print(front[i][j]);
+//					}
+//					System.out.println();
+//				}
 			}
 
 			for (int i=0; i<3; i++) {

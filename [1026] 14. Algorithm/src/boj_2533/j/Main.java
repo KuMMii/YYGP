@@ -1,4 +1,4 @@
-package boj_2533;
+package boj_2533.j;
 
 import java.io.BufferedReader;
 import java.io.IOException;

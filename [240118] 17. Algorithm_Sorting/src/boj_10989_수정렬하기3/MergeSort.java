@@ -1,5 +1,9 @@
 package boj_10989_수정렬하기3;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class MergeSort {
 
     // l=start, m=middle, r=end
@@ -62,6 +66,25 @@ public class MergeSort {
 
             // Merge the sorted halves
             merge(arr,l,m,r);
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        int N;
+        int[] arr;
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        N = Integer.parseInt(br.readLine());
+        arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = Integer.parseInt(br.readLine());
+        }
+
+        MergeSort ob=new MergeSort();
+        ob.sort(arr, 0, arr.length - 1);
+
+        for (int i : arr) {
+            System.out.println(i);
         }
     }
 }
